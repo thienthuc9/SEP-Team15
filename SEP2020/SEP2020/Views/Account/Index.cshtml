@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SEP2020.Models.Account>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/SEP/Views/Shared/SEPlayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> View List ACCOUNT
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name </th>
+                        <th>Role</th>
+                        <th>Check Actice</th>
+                        <th>Status</th>
+                        <th>mail</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Role)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Check_active)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ms_id)
+
+                            </td>
+                            @*<td>
+                        @Html.DisplayFor(modelItem => item.id_FKAccount)
+                    </td>*@
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+
